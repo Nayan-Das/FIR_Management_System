@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<title>USER HOME PAGE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w4.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="#home" class="w3-bar-item w3-button"><b>User Home</b></a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button"><b>ABOUT</b></a>
+      <a href="#register" class="w3-bar-item w3-button" onclick="openForm()"><b>REGISTER FIR PROPOSAL</b></a>
+      <a href="#findfir" class="w3-bar-item w3-button" onclick="openForm1()"><b>FIND PROPOSAL STATUS</b></a>
+      <a href="#contact" class="w3-bar-item w3-button"><b>CONTACT</b></a>
+       
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="jail.png" alt="FIR Image" width="1600" height="600">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+    <h1 class="w3-xxlarge" style="color:white;">FIR Management System</h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+  <!-- About Section -->
+  <div class="w3-row w3-padding-64" id="about">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="image.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">About Online FIR System</h1><br>
+      <h5 class="w3-center">Tradition since 2019</h5>
+      <p class="w3-large">A first information report (F.I.R.) is a written document prepared by police organizations in countries including India, Bangladesh, Pakistan etc. when they receive information about the commission of a cognisable offence, or in Singapore when the police receives information about any <span class="w3-tag w3-light-grey">criminal</span> offence.</p>
+      <p class="w3-large w3-text-grey w3-hide-medium">We propose that the FIR be put on the
+blockchain to make the FIRs immutable. The parties involved will be accused, victim, Police
+and Judiciary. Whenever a document is submitted by the parties it can be verified by other
+parties. Ownership of change in any document will be transparent, i.e., if any one makes a
+change in FIR or submitted documents, the other parties can see who did that.</p>
+    </div>
+  </div>
+  
+  <hr>
+
+  <!-- Contact Section -->
+  <div class="w3-container w3-padding-64" id="contact">
+    <h1>Contact</h1><br>
+    <p class="w3-text-blue-grey w3-large"><b>Online FIR Service managment, New Delhi India</b></p>
+    <p>You can also contact us by phone 00553123-2323 or email help@onlinefir.com</p>
+  </div>
+  
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-32">
+  </footer>
+
+<div class="form-popup" id="myForm">
+  <form action="" class="form-container">
+    <h3 align="center">Register FIR</h3>
+
+    <label for="victim"><b>Victim Name</b></label>
+    <input type="text" placeholder="Enter Victim Name" name="victim" required>
+    <label for="victim_id"><b>Victim ID</b></label>
+    <input type="text" placeholder="Enter Victim ID" name="victim_id" required>
+    <label for="victim_add"><b>Victim address</b></label>
+    <input type="text" placeholder="Enter Victim Address" name="victim_add" required>
+    <label for="accused"><b>Accused Name</b></label>
+    <input type="text" placeholder="Enter Accused Name" name="accused_name" required>
+    <label for="accused_add"><b>Accused Address</b></label>
+    <input type="text" placeholder="Enter Accused Address" name="accused_add" required>
+    <label for="polic_station"><b>Police Station</b></label>
+    <select name="police_station" id="police">
+         <option value="IITKanpur">IIT Kanpur</option>
+         <option value="Kalyanpur">Kalyanpur</option>
+         <option value="Ravatpur">Ravatpur</option>
+         <option value="Pared">Pared</option>
+     </select>
+    <label for="fir_desc"><b>FIR Description</b></label>
+    <textarea placeholder="Enter FIR Description" id="fir_desc" required></textarea>
+    <button type="submit" class="btn">Submit</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+  </form>
+</div>
+<div class="form-popup1" id="myForm1">
+  <form action="" class="form-container">
+    <h1 align="center">Check FIR Proposal Status</h1>
+
+    <label for="victim_id"><b>Victim ID</b></label>
+    <input type="text" placeholder="Enter Victim id" id="victim_id" required>
+    <label for="fir_id"><b>FIR Praposal ID</b></label>
+    <input type="text" placeholder="Enter FIR id" id="Fir_id" required>
+    <button type="button" onclick="myFunction1()" class="btn">Submit</button>
+    <button type="button" class="btn cancel" onclick="closeForm1()">Cancel</button>
+  </form>
+</div>
+
+<div class="form-popup2" id="myForm2">
+  <form action="" class="form-container">
+    <h3 align="center">FIR Status</h3>
+    <p id="prop_id"></p>
+    <p id="victim"></p>
+    <p id="victim_add"></p>
+    <p id="accused"></p>
+    <p id="accused_add"></p>
+    <p id="polic_station"></p>
+    <p id="fir_desc1"></p>
+    <p id="status"></p>
+    <p id="ipc"></p>
+    <p id="cmnt"></p>
+    <button type="button" class="btn cancel" onclick="closeForm2()">Cancel</button>
+  </form>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="w4.js"></script>
+
+</body>
+</html>
+
+

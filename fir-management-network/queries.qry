@@ -1,0 +1,23 @@
+/**
+ * New query file
+ */
+query selectFirproposal {
+  description: "Select all Fir proposals submitted by user"
+  statement:
+      SELECT org.example.firnet.FirProposal
+          WHERE (victimid==_$victimid AND FirProposalId==_$proposalid)
+}
+
+query registeredFir {
+  description: "Select all Fir registered by police against registered user"
+  statement:
+      SELECT org.example.firnet.RegisterFir
+          WHERE (RegFirId==_$RegFirId)
+}
+
+query evidencesandtestimony {
+  description: "Select all Evidences and testimony submitted by police or forensic department against registered user"
+  statement:
+  	  SELECT org.example.firnet.EvidenceandTestimony
+  		  WHERE (EnTid==_$EnTid)
+}
